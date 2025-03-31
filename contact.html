@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Global Immigration</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        .map-container {
+            height: 400px;
+        }
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background-color: #1e40af;
+        }
+        input:focus, textarea:focus {
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(30, 64, 175, 0.2);
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex justify-between">
+                <div class="flex space-x-7">
+                    <div>
+                        <a href="index.html" class="flex items-center py-4 px-2">
+                            <i class="fas fa-passport text-blue-800 text-2xl mr-2"></i>
+                            <span class="font-semibold text-gray-900 text-lg">Global Immigration</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="hidden md:flex items-center space-x-1">
+                    <a href="index.html" class="py-4 px-2 text-gray-500 font-semibold hover:text-blue-800 transition duration-300">Home</a>
+                    <a href="visa-types.html" class="py-4 px-2 text-gray-500 font-semibold hover:text-blue-800 transition duration-300">Visa Types</a>
+                    <a href="apply.html" class="py-4 px-2 text-gray-500 font-semibold hover:text-blue-800 transition duration-300">Apply</a>
+                    <a href="tracking.html" class="py-4 px-2 text-gray-500 font-semibold hover:text-blue-800 transition duration-300">Track</a>
+                    <a href="faq.html" class="py-4 px-2 text-gray-500 font-semibold hover:text-blue-800 transition duration-300">FAQ</a>
+                    <a href="contact.html" class="py-4 px-2 text-blue-800 border-b-4 border-blue-800 font-semibold">Contact</a>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button class="outline-none mobile-menu-button">
+                        <i class="fas fa-bars text-gray-500 text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Contact Header -->
+    <div class="bg-blue-800 text-white py-16">
+        <div class="container mx-auto px-4 text-center">
+            <h1 class="text-3xl md:text-4xl font-bold mb-4">Contact Our Immigration Team</h1>
+            <p class="text-xl max-w-2xl mx-auto">We're here to help with all your visa and immigration questions.</p>
+        </div>
+    </div>
+
+    <!-- Contact Content -->
+    <div class="container mx-auto px-4 py-12">
+        <div class="max-w-6xl mx-auto">
+            <div class="grid md:grid-cols-2 gap-12">
+                <!-- Contact Form -->
+                <div>
+                    <h2 class="text-2xl font-bold text-gray-800 mb-6">Send Us a Message</h2>
+                    <form class="space-y-6">
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <label for="name" class="block text-sm font-medium text-gray-700 mb-1">Full Name*</label>
+                                <input type="text" id="name" class="w-full px-4 py-3 border rounded-lg focus:ring-blue-800 focus:border-blue-800" required>
+                            </div>
+                            <div>
+                                <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email*</label>
+                                <input type="email" id="email" class="w-full px-4 py-3 border rounded-lg focus:ring-blue-800 focus:border-blue-800" required>
+                            </div>
+                        </div>
+                        <div>
+                            <label for="subject" class="block text-sm font-medium text-gray-700 mb-1">Subject*</label>
+                            <select id="subject" class="w-full px-4 py-3 border rounded-lg focus:ring-blue-800 focus:border-blue-800" required>
+                                <option value="">Select a subject</option>
+                                <option value="general">General Inquiry</option>
+                                <option value="application">Application Status</option>
+                                <option value="documents">Document Requirements</option>
+                                <option value="appointment">Book an Appointment</option>
+                                <option value="feedback">Feedback</option>
+                                <option value="other">Other</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="message" class="block text-sm font-medium text-gray-700 mb-1">Message*</label>
+                            <textarea id="message" rows="5" class="w-full px-4 py-3 border rounded-lg focus:ring-blue-800 focus:border-blue-800" required></textarea>
+                        </div>
+                        <div>
+                            <button type="submit" class="w-full bg-blue-800 hover:bg-blue-900 text-white font-medium py-3 px-6 rounded-lg transition duration-300">
+                                Send Message
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Contact Information -->
+                <div>
+                    <h2 class="text-2xl font-bold text-gray-800 mb-6">Our Offices</h2>
+                    
+                    <!-- Main Office -->
+                    <div class="bg-white p-6 rounded-lg shadow-md mb-8">
+                        <div class="flex items-start mb-4">
+                            <div class="contact-icon rounded-full flex items-center justify-center text-white mr-4">
+                                <i class="fas fa-building text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-lg font-semibold text-gray-800">Headquarters</h3>
+                                <p class="text-gray-600">123 Immigration Street, Capital City</p>
+                            </div>
+                        </div>
+                        <div class="space-y-3 pl-14">
+                            <div class="flex items-center">
+                                <i class="fas fa-phone-alt text-blue-800 mr-3"></i>
+                                <span>+1 (555) 123-4567</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-envelope text-blue-800 mr-3"></i>
+                                <span>info@globalimmigration.com</span>
+                            </div>
+                            <div class="flex items-center">
+                                <i class="fas fa-clock text-blue-800 mr-3"></i>
+                                <span>Monday - Friday: 8:00 AM - 6:00 PM</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Regional Offices -->
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div class="bg-white p-6 rounded-lg shadow-md">
+                            <h3 class="text-lg font-semibold text-gray-800 mb-2">North Region Office</h3>
+                            <p class="text-gray-600 mb-3">456 North Avenue, Northern City</p>
+                            <div class="flex items-center text-sm text-gray-600">
+                                <i class="fas fa-phone-alt text-blue-800 mr-2"></i>
+                                <span>+1 (555) 234-5678</span>
+                            </div>
+                        </div>
+                        <div class="bg-white p-6 rounded-lg shadow-md">
+                            <h3 class="text-lg font-semibold text-gray-800 mb-2">South Region Office</h3>
+                            <p class="text-gray-600 mb-3">789 South Boulevard, Southern City</p>
+                            <div class="flex items-center text-sm text-gray-600">
+                                <i class="fas fa-phone-alt text-blue-800 mr-2"></i>
+                                <span>+1 (555) 345-6789</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Emergency Contact -->
+                    <div class="mt-8 bg-red-50 border-l-4 border-red-500 p-4 rounded-r-lg">
+                        <div class="flex">
+                            <div class="flex-shrink-0">
+                                <i class="fas fa-exclamation-circle text-red-500 text-xl"></i>
+                            </div>
+                            <div class="ml-3">
+                                <h3 class="text-sm font-medium text-red-800">Emergency Contact</h3>
+                                <div class="mt-2 text-sm text-red-700">
+                                    <p>For urgent immigration matters outside business hours:</p>
+                                    <p class="mt-1 font-medium">+1 (555) 987-6543</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Map Section -->
+            <div class="mt-16">
+                <h2 class="text-2xl font-bold text-gray-800 mb-6">Find Us on Map</h2>
+                <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                    <div class="map-container">
+                        <!-- In a real implementation, this would be a Google Maps iframe -->
+                        <div class="w-full h-full bg-gray-200 flex items-center justify-center">
+                            <div class="text-center p-6">
+                                <i class="fas fa-map-marker-alt text-4xl text-blue-800 mb-3"></i>
+                                <h3 class="text-xl font-medium text-gray-800">Global Immigration Headquarters</h3>
+                                <p class="text-gray-600 mt-1">123 Immigration Street, Capital City</p>
+                                <a href="#" class="inline-block mt-4 text-blue-800 hover:underline">Get Directions</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAQ CTA -->
+            <div class="mt-16 bg-blue-50 rounded-lg p-8 text-center">
+                <h2 class="text-2xl font-bold text-blue-800 mb-4">Have Questions?</h2>
+                <p class="text-gray-700 max-w-2xl mx-auto mb-6">Check our FAQ section for answers to common questions about visas, applications, and requirements.</p>
+                <a href="faq.html" class="inline-block bg-blue-800 hover:bg-blue-900 text-white font-medium py-3 px-8 rounded-lg transition duration-300">
+                    Visit FAQ Page
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white pt-12 pb-6">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Global Immigration</h3>
+                    <p class="text-gray-400">Providing professional visa and immigration services since 2005.</p>
+                    <div class="flex space-x-4 mt-4">
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white">Home</a></li>
+                        <li><a href="visa-types.html" class="text-gray-400 hover:text-white">Visa Types</a></li>
+                        <li><a href="apply.html" class="text-gray-400 hover:text-white">Apply Online</a></li>
+                        <li><a href="tracking.html" class="text-gray-400 hover:text-white">Track Application</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Contact Us</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-center text-gray-400"><i class="fas fa-map-marker-alt mr-2"></i> 123 Immigration St, Capital City</li>
+                        <li class="flex items-center text-gray-400"><i class="fas fa-phone-alt mr-2"></i> +1 (555) 123-4567</li>
+                        <li class="flex items-center text-gray-400"><i class="fas fa-envelope mr-2"></i> info@globalimmigration.com</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Newsletter</h3>
+                    <p class="text-gray-400 mb-2">Subscribe for updates and visa news</p>
+                    <form class="flex">
+                        <input type="email" placeholder="Your email" class="px-4 py-2 w-full rounded-l focus:outline-none text-gray-900">
+                        <button type="submit" class="bg-blue-800 hover:bg-blue-900 px-4 rounded-r"><i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-6 text-center text-gray-400">
+                <p>&copy; 2023 Global Immigration Services. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Form submission
+        document.querySelector('form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            // In a real application, this would send the form data to a server
+            alert('Thank you for your message! We will respond within 24 hours.');
+            this.reset();
+        });
+
+        // Mobile menu toggle
+        const mobileMenuButton = document.querySelector('.mobile-menu-button');
+        const mobileMenu = document.querySelector('.mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>
