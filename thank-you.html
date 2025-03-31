@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You - Global Immigration</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        .checkmark {
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+            display: block;
+            stroke-width: 3;
+            stroke: #fff;
+            stroke-miterlimit: 10;
+            box-shadow: 0 0 0 rgba(30, 64, 175, 0.4);
+            animation: fill 0.4s ease-in-out 0.4s forwards, scale 0.3s ease-in-out 0.9s both;
+        }
+        .checkmark__circle {
+            stroke-dasharray: 166;
+            stroke-dashoffset: 166;
+            stroke-width: 3;
+            stroke-miterlimit: 10;
+            stroke: #1e40af;
+            fill: none;
+            animation: stroke 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+        }
+        .checkmark__check {
+            transform-origin: 50% 50%;
+            stroke-dasharray: 48;
+            stroke-dashoffset: 48;
+            animation: stroke 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards;
+        }
+        @keyframes stroke {
+            100% {
+                stroke-dashoffset: 0;
+            }
+        }
+        @keyframes scale {
+            0%, 100% {
+                transform: none;
+            }
+            50% {
+                transform: scale3d(1.1, 1.1, 1);
+            }
+        }
+        @keyframes fill {
+            100% {
+                box-shadow: inset 0 0 0 100px #1e40af;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex justify-between">
+                <div class="flex space-x-7">
+                    <div>
+                        <a href="index.html" class="flex items-center py-4 px-2">
+                            <i class="fas fa-passport text-blue-800 text-2xl mr-2"></i>
+                            <span class="font-semibold text-gray-900 text-lg">Global Immigration</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="hidden md:flex items-center space-x-1">
+                    <a href="index.html" class="py-4 px-2 text-gray-500 font-semibold hover:text-blue-800 transition duration-300">Home</a>
+                    <a href="visa-types.html" class="py-4 px-2 text-gray-500 font-semibold hover:text-blue-800 transition duration-300">Visa Types</a>
+                    <a href="apply.html" class="py-4 px-2 text-gray-500 font-semibold hover:text-blue-800 transition duration-300">Apply</a>
+                    <a href="tracking.html" class="py-4 px-2 text-gray-500 font-semibold hover:text-blue-800 transition duration-300">Track</a>
+                    <a href="faq.html" class="py-4 px-2 text-gray-500 font-semibold hover:text-blue-800 transition duration-300">FAQ</a>
+                    <a href="contact.html" class="py-4 px-2 text-gray-500 font-semibold hover:text-blue-800 transition duration-300">Contact</a>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button class="outline-none mobile-menu-button">
+                        <i class="fas fa-bars text-gray-500 text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Thank You Content -->
+    <div class="container mx-auto px-4 py-16">
+        <div class="max-w-2xl mx-auto text-center">
+            <!-- Animated Checkmark -->
+            <div class="flex justify-center mb-8">
+                <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+                    <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none"/>
+                    <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+                </svg>
+            </div>
+
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Application Submitted Successfully!</h1>
+            <p class="text-xl text-gray-600 mb-8">Thank you for choosing Global Immigration Services. Your visa application has been received.</p>
+
+            <div class="bg-white rounded-lg shadow-md p-6 mb-8 text-left">
+                <h2 class="text-xl font-semibold text-gray-800 mb-4">Your Application Details</h2>
+                <div class="space-y-3">
+                    <div class="flex justify-between">
+                        <span class="text-gray-600">Reference Number:</span>
+                        <span id="ref-number" class="font-medium">GS-<script>document.write(Math.floor(Math.random() * 1000000))</script></span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span class="text-gray-600">Applicant Name:</span>
+                        <span class="font-medium">John Smith</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span class="text-gray-600">Visa Type:</span>
+                        <span class="font-medium">Tourist Visa</span>
+                    </div>
+                    <div class="flex justify-between">
+                        <span class="text-gray-600">Submission Date:</span>
+                        <span class="font-medium"><script>document.write(new Date().toLocaleDateString())</script></span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb-8">
+                <h2 class="text-xl font-semibold text-gray-800 mb-4">What Happens Next?</h2>
+                <div class="bg-blue-50 rounded-lg p-4 text-left">
+                    <ol class="list-decimal pl-5 space-y-2 text-gray-700">
+                        <li>You'll receive a confirmation email with your application details</li>
+                        <li>Our team will review your application within 1-2 business days</li>
+                        <li>We may contact you if additional information is required</li>
+                        <li>You'll be notified when a decision has been made</li>
+                    </ol>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-4">
+                <a href="tracking.html" class="bg-blue-800 hover:bg-blue-900 text-white font-medium py-3 px-6 rounded-lg transition duration-300 flex items-center justify-center">
+                    <i class="fas fa-search mr-2"></i> Track Application
+                </a>
+                <a href="index.html" class="border border-blue-800 text-blue-800 hover:bg-blue-50 font-medium py-3 px-6 rounded-lg transition duration-300 flex items-center justify-center">
+                    <i class="fas fa-home mr-2"></i> Return Home
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white pt-12 pb-6">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Global Immigration</h3>
+                    <p class="text-gray-400">Providing professional visa and immigration services since 2005.</p>
+                    <div class="flex space-x-4 mt-4">
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white">Home</a></li>
+                        <li><a href="visa-types.html" class="text-gray-400 hover:text-white">Visa Types</a></li>
+                        <li><a href="apply.html" class="text-gray-400 hover:text-white">Apply Online</a></li>
+                        <li><a href="tracking.html" class="text-gray-400 hover:text-white">Track Application</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Contact Us</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-center text-gray-400"><i class="fas fa-map-marker-alt mr-2"></i> 123 Immigration St, Capital City</li>
+                        <li class="flex items-center text-gray-400"><i class="fas fa-phone-alt mr-2"></i> +1 (555) 123-4567</li>
+                                <li class="flex items-center text-gray-400"><i class="fas fa-envelope mr-2"></i> info@globalimmigration.com</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Newsletter</h3>
+                    <p class="text-gray-400 mb-2">Subscribe for updates and visa news</p>
+                    <form class="flex">
+                        <input type="email" placeholder="Your email" class="px-4 py-2 w-full rounded-l focus:outline-none text-gray-900">
+                        <button type="submit" class="bg-blue-800 hover:bg-blue-900 px-4 rounded-r"><i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-6 text-center text-gray-400">
+                <p>&copy; 2023 Global Immigration Services. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Mobile menu toggle
+        const mobileMenuButton = document.querySelector('.mobile-menu-button');
+        const mobileMenu = document.querySelector('.mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>
