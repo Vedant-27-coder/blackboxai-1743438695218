@@ -1,0 +1,475 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apply for Visa - Global Immigration</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        .form-step {
+            display: none;
+        }
+        .form-step.active {
+            display: block;
+        }
+        .file-preview {
+            max-width: 100px;
+            max-height: 100px;
+            margin-right: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            padding: 5px;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex justify-between">
+                <div class="flex space-x-7">
+                    <div>
+                        <a href="index.html" class="flex items-center py-4 px-2">
+                            <i class="fas fa-passport text-blue-800 text-2xl mr-2"></i>
+                            <span class="font-semibold text-gray-900 text-lg">Global Immigration</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="hidden md:flex items-center space-x-1">
+                    <a href="index.html" class="py-4 px-2 text-gray-500 font-semibold hover:text-blue-800 transition duration-300">Home</a>
+                    <a href="visa-types.html" class="py-4 px-2 text-gray-500 font-semibold hover:text-blue-800 transition duration-300">Visa Types</a>
+                    <a href="apply.html" class="py-4 px-2 text-blue-800 border-b-4 border-blue-800 font-semibold">Apply</a>
+                    <a href="tracking.html" class="py-4 px-2 text-gray-500 font-semibold hover:text-blue-800 transition duration-300">Track</a>
+                    <a href="faq.html" class="py-4 px-2 text-gray-500 font-semibold hover:text-blue-800 transition duration-300">FAQ</a>
+                    <a href="contact.html" class="py-4 px-2 text-gray-500 font-semibold hover:text-blue-800 transition duration-300">Contact</a>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button class="outline-none mobile-menu-button">
+                        <i class="fas fa-bars text-gray-500 text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Application Form -->
+    <div class="container mx-auto px-4 py-12">
+        <div class="max-w-4xl mx-auto bg-white rounded-lg shadow-md overflow-hidden">
+            <!-- Progress Bar -->
+            <div class="px-6 py-4 border-b">
+                <div class="flex justify-between items-center mb-2">
+                    <h2 class="text-2xl font-bold text-gray-800">Visa Application</h2>
+                    <span class="text-sm text-gray-600">Step <span id="current-step">1</span> of 4</span>
+                </div>
+                <div class="w-full bg-gray-200 rounded-full h-2.5">
+                    <div id="progress-bar" class="bg-blue-800 h-2.5 rounded-full" style="width: 25%"></div>
+                </div>
+            </div>
+
+            <!-- Form Steps -->
+            <form id="visa-form" class="p-6">
+                <!-- Step 1: Personal Information -->
+                <div class="form-step active" id="step1">
+                    <h3 class="text-xl font-semibold mb-6 text-gray-800">Personal Information</h3>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="first-name" class="block text-sm font-medium text-gray-700 mb-1">First Name*</label>
+                            <input type="text" id="first-name" class="w-full px-4 py-2 border rounded-lg focus:ring-blue-800 focus:border-blue-800" required>
+                        </div>
+                        <div>
+                            <label for="last-name" class="block text-sm font-medium text-gray-700 mb-1">Last Name*</label>
+                            <input type="text" id="last-name" class="w-full px-4 py-2 border rounded-lg focus:ring-blue-800 focus:border-blue-800" required>
+                        </div>
+                        <div>
+                            <label for="dob" class="block text-sm font-medium text-gray-700 mb-1">Date of Birth*</label>
+                            <input type="date" id="dob" class="w-full px-4 py-2 border rounded-lg focus:ring-blue-800 focus:border-blue-800" required>
+                        </div>
+                        <div>
+                            <label for="nationality" class="block text-sm font-medium text-gray-700 mb-1">Nationality*</label>
+                            <select id="nationality" class="w-full px-4 py-2 border rounded-lg focus:ring-blue-800 focus:border-blue-800" required>
+                                <option value="">Select Country</option>
+                                <option value="US">United States</option>
+                                <option value="UK">United Kingdom</option>
+                                <option value="CA">Canada</option>
+                                <option value="AU">Australia</option>
+                                <option value="IN">India</option>
+                                <option value="CN">China</option>
+                                <!-- More countries would be added here -->
+                            </select>
+                        </div>
+                        <div>
+                            <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email*</label>
+                            <input type="email" id="email" class="w-full px-4 py-2 border rounded-lg focus:ring-blue-800 focus:border-blue-800" required>
+                        </div>
+                        <div>
+                            <label for="phone" class="block text-sm font-medium text-gray-700 mb-1">Phone Number*</label>
+                            <input type="tel" id="phone" class="w-full px-4 py-2 border rounded-lg focus:ring-blue-800 focus:border-blue-800" required>
+                        </div>
+                    </div>
+                    <div class="mt-6">
+                        <label for="address" class="block text-sm font-medium text-gray-700 mb-1">Current Address*</label>
+                        <textarea id="address" rows="3" class="w-full px-4 py-2 border rounded-lg focus:ring-blue-800 focus:border-blue-800" required></textarea>
+                    </div>
+                    <div class="flex justify-end mt-8">
+                        <button type="button" onclick="nextStep(2)" class="bg-blue-800 hover:bg-blue-900 text-white font-medium py-2 px-6 rounded transition duration-300">Next</button>
+                    </div>
+                </div>
+
+                <!-- Step 2: Visa Details -->
+                <div class="form-step" id="step2">
+                    <h3 class="text-xl font-semibold mb-6 text-gray-800">Visa Details</h3>
+                    <div class="grid md:grid-cols-2 gap-6">
+                        <div>
+                            <label for="visa-type" class="block text-sm font-medium text-gray-700 mb-1">Visa Type*</label>
+                            <select id="visa-type" class="w-full px-4 py-2 border rounded-lg focus:ring-blue-800 focus:border-blue-800" required>
+                                <option value="">Select Visa Type</option>
+                                <option value="tourist">Tourist Visa</option>
+                                <option value="student">Student Visa</option>
+                                <option value="work">Work Visa</option>
+                                <option value="business">Business Visa</option>
+                                <option value="family">Family Visa</option>
+                                <option value="transit">Transit Visa</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label for="purpose" class="block text-sm font-medium text-gray-700 mb-1">Purpose of Visit*</label>
+                            <input type="text" id="purpose" class="w-full px-4 py-2 border rounded-lg focus:ring-blue-800 focus:border-blue-800" required>
+                        </div>
+                        <div>
+                            <label for="entry-date" class="block text-sm font-medium text-gray-700 mb-1">Intended Entry Date*</label>
+                            <input type="date" id="entry-date" class="w-full px-4 py-2 border rounded-lg focus:ring-blue-800 focus:border-blue-800" required>
+                        </div>
+                        <div>
+                            <label for="duration" class="block text-sm font-medium text-gray-700 mb-1">Duration of Stay*</label>
+                            <select id="duration" class="w-full px-4 py-2 border rounded-lg focus:ring-blue-800 focus:border-blue-800" required>
+                                <option value="">Select Duration</option>
+                                <option value="7">7 days</option>
+                                <option value="14">14 days</option>
+                                <option value="30">30 days</option>
+                                <option value="90">90 days</option>
+                                <option value="180">6 months</option>
+                                <option value="365">1 year</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="mt-6">
+                        <label class="block text-sm font-medium text-gray-700 mb-2">Have you visited before?*</label>
+                        <div class="flex space-x-4">
+                            <label class="inline-flex items-center">
+                                <input type="radio" name="visited-before" value="yes" class="form-radio text-blue-800" required>
+                                <span class="ml-2">Yes</span>
+                            </label>
+                            <label class="inline-flex items-center">
+                                <input type="radio" name="visited-before" value="no" class="form-radio text-blue-800">
+                                <span class="ml-2">No</span>
+                            </label>
+                        </div>
+                    </div>
+                    <div class="flex justify-between mt-8">
+                        <button type="button" onclick="prevStep(1)" class="text-blue-800 hover:text-blue-900 font-medium py-2 px-4 rounded transition duration-300">Back</button>
+                        <button type="button" onclick="nextStep(3)" class="bg-blue-800 hover:bg-blue-900 text-white font-medium py-2 px-6 rounded transition duration-300">Next</button>
+                    </div>
+                </div>
+
+                <!-- Step 3: Documents Upload -->
+                <div class="form-step" id="step3">
+                    <h3 class="text-xl font-semibold mb-6 text-gray-800">Required Documents</h3>
+                    <div class="space-y-6">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Passport Copy*</label>
+                            <div class="flex items-center">
+                                <input type="file" id="passport" class="hidden" accept=".pdf,.jpg,.jpeg,.png" required>
+                                <label for="passport" class="cursor-pointer bg-gray-100 hover:bg-gray-200 text-gray-800 font-medium py-2 px-4 rounded transition duration-300">
+                                    <i class="fas fa-upload mr-2"></i>Upload File
+                                </label>
+                                <span id="passport-name" class="ml-3 text-sm text-gray-600">No file chosen</span>
+                            </div>
+                            <p class="mt-1 text-xs text-gray-500">PDF, JPG or PNG (Max 5MB)</p>
+                            <div id="passport-preview" class="mt-2 flex flex-wrap"></div>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Passport Photo*</label>
+                            <div class="flex items-center">
+                                <input type="file" id="photo" class="hidden" accept=".jpg,.jpeg,.png" required>
+                                <label for="photo" class="cursor-pointer bg-gray-100 hover:bg-gray-200 text-gray-800 font-medium py-2 px-4 rounded transition duration-300">
+                                    <i class="fas fa-upload mr-2"></i>Upload File
+                                </label>
+                                <span id="photo-name" class="ml-3 text-sm text-gray-600">No file chosen</span>
+                            </div>
+                            <p class="mt-1 text-xs text-gray-500">JPG or PNG (Max 2MB)</p>
+                            <div id="photo-preview" class="mt-2 flex flex-wrap"></div>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Proof of Financial Means*</label>
+                            <div class="flex items-center">
+                                <input type="file" id="financial" class="hidden" accept=".pdf,.jpg,.jpeg,.png" required>
+                                <label for="financial" class="cursor-pointer bg-gray-100 hover:bg-gray-200 text-gray-800 font-medium py-2 px-4 rounded transition duration-300">
+                                    <i class="fas fa-upload mr-2"></i>Upload File
+                                </label>
+                                <span id="financial-name" class="ml-3 text-sm text-gray-600">No file chosen</span>
+                            </div>
+                            <p class="mt-1 text-xs text-gray-500">Bank statement or sponsorship letter (Max 5MB)</p>
+                            <div id="financial-preview" class="mt-2 flex flex-wrap"></div>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 mb-2">Additional Documents</label>
+                            <div class="flex items-center">
+                                <input type="file" id="additional" class="hidden" accept=".pdf,.jpg,.jpeg,.png" multiple>
+                                <label for="additional" class="cursor-pointer bg-gray-100 hover:bg-gray-200 text-gray-800 font-medium py-2 px-4 rounded transition duration-300">
+                                    <i class="fas fa-upload mr-2"></i>Upload Files
+                                </label>
+                                <span id="additional-name" class="ml-3 text-sm text-gray-600">No files chosen</span>
+                            </div>
+                            <p class="mt-1 text-xs text-gray-500">Flight tickets, hotel bookings, etc. (Max 10MB total)</p>
+                            <div id="additional-preview" class="mt-2 flex flex-wrap"></div>
+                        </div>
+                    </div>
+                    <div class="flex justify-between mt-8">
+                        <button type="button" onclick="prevStep(2)" class="text-blue-800 hover:text-blue-900 font-medium py-2 px-4 rounded transition duration-300">Back</button>
+                        <button type="button" onclick="nextStep(4)" class="bg-blue-800 hover:bg-blue-900 text-white font-medium py-2 px-6 rounded transition duration-300">Next</button>
+                    </div>
+                </div>
+
+                <!-- Step 4: Review & Submit -->
+                <div class="form-step" id="step4">
+                    <h3 class="text-xl font-semibold mb-6 text-gray-800">Review Your Application</h3>
+                    <div class="bg-gray-50 p-6 rounded-lg">
+                        <h4 class="font-semibold text-lg mb-4">Personal Information</h4>
+                        <div class="grid md:grid-cols-2 gap-4 mb-6">
+                            <div>
+                                <p class="text-sm text-gray-600">Full Name</p>
+                                <p id="review-name" class="font-medium">-</p>
+                            </div>
+                            <div>
+                                <p class="text-sm text-gray-600">Date of Birth</p>
+                                <p id="review-dob" class="font-medium">-</p>
+                            </div>
+                            <div>
+                                <p class="text-sm text-gray-600">Nationality</p>
+                                <p id="review-nationality" class="font-medium">-</p>
+                            </div>
+                            <div>
+                                <p class="text-sm text-gray-600">Contact</p>
+                                <p id="review-contact" class="font-medium">-</p>
+                            </div>
+                        </div>
+
+                        <h4 class="font-semibold text-lg mb-4">Visa Details</h4>
+                        <div class="grid md:grid-cols-2 gap-4 mb-6">
+                            <div>
+                                <p class="text-sm text-gray-600">Visa Type</p>
+                                <p id="review-visa-type" class="font-medium">-</p>
+                            </div>
+                            <div>
+                                <p class="text-sm text-gray-600">Purpose</p>
+                                <p id="review-purpose" class="font-medium">-</p>
+                            </div>
+                            <div>
+                                <p class="text-sm text-gray-600">Entry Date</p>
+                                <p id="review-entry-date" class="font-medium">-</p>
+                            </div>
+                            <div>
+                                <p class="text-sm text-gray-600">Duration</p>
+                                <p id="review-duration" class="font-medium">-</p>
+                            </div>
+                        </div>
+
+                        <h4 class="font-semibold text-lg mb-4">Documents</h4>
+                        <div class="space-y-2">
+                            <p id="review-passport" class="text-sm font-medium">Passport: Not uploaded</p>
+                            <p id="review-photo" class="text-sm font-medium">Photo: Not uploaded</p>
+                            <p id="review-financial" class="text-sm font-medium">Financial Proof: Not uploaded</p>
+                            <p id="review-additional" class="text-sm font-medium">Additional Documents: None</p>
+                        </div>
+                    </div>
+
+                    <div class="mt-6">
+                        <label class="flex items-start">
+                            <input type="checkbox" id="declaration" class="mt-1 form-checkbox text-blue-800" required>
+                            <span class="ml-2 text-sm text-gray-700">I declare that all information provided is true and correct. I understand that providing false information may result in my application being refused.*</span>
+                        </label>
+                    </div>
+
+                    <div class="flex justify-between mt-8">
+                        <button type="button" onclick="prevStep(3)" class="text-blue-800 hover:text-blue-900 font-medium py-2 px-4 rounded transition duration-300">Back</button>
+                        <button type="submit" class="bg-blue-800 hover:bg-blue-900 text-white font-medium py-2 px-6 rounded transition duration-300">Submit Application</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white pt-12 pb-6">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Global Immigration</h3>
+                    <p class="text-gray-400">Providing professional visa and immigration services since 2005.</p>
+                    <div class="flex space-x-4 mt-4">
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white">Home</a></li>
+                        <li><a href="visa-types.html" class="text-gray-400 hover:text-white">Visa Types</a></li>
+                        <li><a href="apply.html" class="text-gray-400 hover:text-white">Apply Online</a></li>
+                        <li><a href="tracking.html" class="text-gray-400 hover:text-white">Track Application</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Contact Us</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-center text-gray-400"><i class="fas fa-map-marker-alt mr-2"></i> 123 Immigration St, Capital City</li>
+                        <li class="flex items-center text-gray-400"><i class="fas fa-phone-alt mr-2"></i> +1 (555) 123-4567</li>
+                        <li class="flex items-center text-gray-400"><i class="fas fa-envelope mr-2"></i> info@globalimmigration.com</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Newsletter</h3>
+                    <p class="text-gray-400 mb-2">Subscribe for updates and visa news</p>
+                    <form class="flex">
+                        <input type="email" placeholder="Your email" class="px-4 py-2 w-full rounded-l focus:outline-none text-gray-900">
+                        <button type="submit" class="bg-blue-800 hover:bg-blue-900 px-4 rounded-r"><i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-6 text-center text-gray-400">
+                <p>&copy; 2023 Global Immigration Services. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Form navigation
+        function nextStep(step) {
+            document.querySelector('.form-step.active').classList.remove('active');
+            document.getElementById(`step${step}`).classList.add('active');
+            document.getElementById('current-step').textContent = step;
+            document.getElementById('progress-bar').style.width = `${step * 25}%`;
+            updateReview();
+        }
+
+        function prevStep(step) {
+            document.querySelector('.form-step.active').classList.remove('active');
+            document.getElementById(`step${step}`).classList.add('active');
+            document.getElementById('current-step').textContent = step;
+            document.getElementById('progress-bar').style.width = `${step * 25}%`;
+        }
+
+        // File upload handling
+        document.getElementById('passport').addEventListener('change', function(e) {
+            const fileName = e.target.files[0]?.name || 'No file chosen';
+            document.getElementById('passport-name').textContent = fileName;
+            previewFile(e.target, 'passport-preview');
+        });
+
+        document.getElementById('photo').addEventListener('change', function(e) {
+            const fileName = e.target.files[0]?.name || 'No file chosen';
+            document.getElementById('photo-name').textContent = fileName;
+            previewFile(e.target, 'photo-preview');
+        });
+
+        document.getElementById('financial').addEventListener('change', function(e) {
+            const fileName = e.target.files[0]?.name || 'No file chosen';
+            document.getElementById('financial-name').textContent = fileName;
+            previewFile(e.target, 'financial-preview');
+        });
+
+        document.getElementById('additional').addEventListener('change', function(e) {
+            const fileCount = e.target.files.length;
+            document.getElementById('additional-name').textContent = fileCount > 0 ? `${fileCount} files chosen` : 'No files chosen';
+            previewFile(e.target, 'additional-preview', true);
+        });
+
+        function previewFile(input, previewId, multiple = false) {
+            const previewContainer = document.getElementById(previewId);
+            previewContainer.innerHTML = '';
+
+            if (multiple) {
+                for (let file of input.files) {
+                    if (file.type.match('image.*')) {
+                        const reader = new FileReader();
+                        reader.onload = function(e) {
+                            const img = document.createElement('img');
+                            img.src = e.target.result;
+                            img.classList.add('file-preview');
+                            previewContainer.appendChild(img);
+                        }
+                        reader.readAsDataURL(file);
+                    }
+                }
+            } else if (input.files[0]) {
+                if (input.files[0].type.match('image.*')) {
+                    const reader = new FileReader();
+                    reader.onload = function(e) {
+                        const img = document.createElement('img');
+                        img.src = e.target.result;
+                        img.classList.add('file-preview');
+                        previewContainer.appendChild(img);
+                    }
+                    reader.readAsDataURL(input.files[0]);
+                }
+            }
+        }
+
+        // Update review section
+        function updateReview() {
+            // Personal Info
+            document.getElementById('review-name').textContent = 
+                `${document.getElementById('first-name').value} ${document.getElementById('last-name').value}`;
+            document.getElementById('review-dob').textContent = 
+                document.getElementById('dob').value || '-';
+            document.getElementById('review-nationality').textContent = 
+                document.getElementById('nationality').options[document.getElementById('nationality').selectedIndex].text || '-';
+            document.getElementById('review-contact').textContent = 
+                `${document.getElementById('email').value || '-'} / ${document.getElementById('phone').value || '-'}`;
+
+            // Visa Details
+            document.getElementById('review-visa-type').textContent = 
+                document.getElementById('visa-type').options[document.getElementById('visa-type').selectedIndex].text || '-';
+            document.getElementById('review-purpose').textContent = 
+                document.getElementById('purpose').value || '-';
+            document.getElementById('review-entry-date').textContent = 
+                document.getElementById('entry-date').value || '-';
+            document.getElementById('review-duration').textContent = 
+                document.getElementById('duration').options[document.getElementById('duration').selectedIndex].text || '-';
+
+            // Documents
+            document.getElementById('review-passport').textContent = 
+                document.getElementById('passport').files[0] ? `Passport: ${document.getElementById('passport').files[0].name}` : 'Passport: Not uploaded';
+            document.getElementById('review-photo').textContent = 
+                document.getElementById('photo').files[0] ? `Photo: ${document.getElementById('photo').files[0].name}` : 'Photo: Not uploaded';
+            document.getElementById('review-financial').textContent = 
+                document.getElementById('financial').files[0] ? `Financial Proof: ${document.getElementById('financial').files[0].name}` : 'Financial Proof: Not uploaded';
+            document.getElementById('review-additional').textContent = 
+                document.getElementById('additional').files.length > 0 ? `Additional Documents: ${document.getElementById('additional').files.length} files` : 'Additional Documents: None';
+        }
+
+        // Form submission
+        document.getElementById('visa-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            // In a real application, you would send the form data to a server here
+            alert('Application submitted successfully! Your reference number is: GS-' + Math.floor(Math.random() * 1000000));
+            window.location.href = 'thank-you.html';
+        });
+
+        // Mobile menu toggle
+        const mobileMenuButton = document.querySelector('.mobile-menu-button');
+        const mobileMenu = document.querySelector('.mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>
