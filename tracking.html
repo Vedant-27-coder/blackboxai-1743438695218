@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Track Application - Global Immigration</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        .timeline {
+            position: relative;
+            padding-left: 50px;
+        }
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 20px;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: #e5e7eb;
+        }
+        .timeline-item {
+            position: relative;
+            margin-bottom: 30px;
+        }
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -40px;
+            top: 5px;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #e5e7eb;
+            border: 4px solid white;
+        }
+        .timeline-item.active::before {
+            background: #1e40af;
+        }
+        .timeline-item.completed::before {
+            background: #10b981;
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex justify-between">
+                <div class="flex space-x-7">
+                    <div>
+                        <a href="index.html" class="flex items-center py-4 px-2">
+                            <i class="fas fa-passport text-blue-800 text-2xl mr-2"></i>
+                            <span class="font-semibold text-gray-900 text-lg">Global Immigration</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="hidden md:flex items-center space-x-1">
+                    <a href="index.html" class="py-4 px-2 text-gray-500 font-semibold hover:text-blue-800 transition duration-300">Home</a>
+                    <a href="visa-types.html" class="py-4 px-2 text-gray-500 font-semibold hover:text-blue-800 transition duration-300">Visa Types</a>
+                    <a href="apply.html" class="py-4 px-2 text-gray-500 font-semibold hover:text-blue-800 transition duration-300">Apply</a>
+                    <a href="tracking.html" class="py-4 px-2 text-blue-800 border-b-4 border-blue-800 font-semibold">Track</a>
+                    <a href="faq.html" class="py-4 px-2 text-gray-500 font-semibold hover:text-blue-800 transition duration-300">FAQ</a>
+                    <a href="contact.html" class="py-4 px-2 text-gray-500 font-semibold hover:text-blue-800 transition duration-300">Contact</a>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button class="outline-none mobile-menu-button">
+                        <i class="fas fa-bars text-gray-500 text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Tracking Section -->
+    <div class="container mx-auto px-4 py-12">
+        <div class="max-w-4xl mx-auto">
+            <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                <div class="p-6 border-b">
+                    <h2 class="text-2xl font-bold text-gray-800">Track Your Visa Application</h2>
+                    <p class="text-gray-600 mt-1">Enter your application reference number to check status</p>
+                </div>
+                <div class="p-6">
+                    <div class="flex flex-col md:flex-row gap-4">
+                        <input type="text" id="tracking-number" placeholder="Enter your 12-digit reference number" 
+                            class="flex-grow px-4 py-3 border rounded-lg focus:ring-blue-800 focus:border-blue-800">
+                        <button id="track-button" class="bg-blue-800 hover:bg-blue-900 text-white font-medium py-3 px-6 rounded-lg transition duration-300">
+                            Track Application
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Results Section (initially hidden) -->
+            <div id="results-section" class="bg-white rounded-lg shadow-md overflow-hidden mt-6 hidden">
+                <div class="p-6 border-b">
+                    <div class="flex justify-between items-center">
+                        <h3 class="text-xl font-semibold text-gray-800">Application Status</h3>
+                        <span id="status-badge" class="px-3 py-1 rounded-full text-sm font-medium"></span>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <div class="grid md:grid-cols-2 gap-6 mb-8">
+                        <div>
+                            <h4 class="text-lg font-medium text-gray-800 mb-2">Application Details</h4>
+                            <div class="space-y-2">
+                                <p><span class="text-gray-600">Reference No:</span> <span id="ref-number" class="font-medium">-</span></p>
+                                <p><span class="text-gray-600">Applicant:</span> <span id="applicant-name" class="font-medium">-</span></p>
+                                <p><span class="text-gray-600">Visa Type:</span> <span id="visa-type" class="font-medium">-</span></p>
+                                <p><span class="text-gray-600">Submitted:</span> <span id="submitted-date" class="font-medium">-</span></p>
+                            </div>
+                        </div>
+                        <div>
+                            <h4 class="text-lg font-medium text-gray-800 mb-2">Processing Information</h4>
+                            <div class="space-y-2">
+                                <p><span class="text-gray-600">Current Stage:</span> <span id="current-stage" class="font-medium">-</span></p>
+                                <p><span class="text-gray-600">Estimated Completion:</span> <span id="estimated-date" class="font-medium">-</span></p>
+                                <p><span class="text-gray-600">Case Officer:</span> <span id="case-officer" class="font-medium">-</span></p>
+                                <p><span class="text-gray-600">Last Updated:</span> <span id="last-updated" class="font-medium">-</span></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <h4 class="text-lg font-medium text-gray-800 mb-4">Application Timeline</h4>
+                    <div class="timeline">
+                        <div class="timeline-item completed">
+                            <h5 class="font-medium text-gray-800">Application Submitted</h5>
+                            <p class="text-sm text-gray-600">Your application has been received</p>
+                            <p class="text-xs text-gray-500 mt-1">June 15, 2023 - 10:30 AM</p>
+                        </div>
+                        <div class="timeline-item completed">
+                            <h5 class="font-medium text-gray-800">Payment Processed</h5>
+                            <p class="text-sm text-gray-600">Payment has been successfully verified</p>
+                            <p class="text-xs text-gray-500 mt-1">June 15, 2023 - 11:45 AM</p>
+                        </div>
+                        <div class="timeline-item completed">
+                            <h5 class="font-medium text-gray-800">Documents Verified</h5>
+                            <p class="text-sm text-gray-600">All required documents have been approved</p>
+                            <p class="text-xs text-gray-500 mt-1">June 17, 2023 - 2:15 PM</p>
+                        </div>
+                        <div class="timeline-item active">
+                            <h5 class="font-medium text-gray-800">Under Review</h5>
+                            <p class="text-sm text-gray-600">Your application is being processed by our team</p>
+                            <p class="text-xs text-gray-500 mt-1">June 19, 2023 - 9:00 AM</p>
+                        </div>
+                        <div class="timeline-item">
+                            <h5 class="font-medium text-gray-800">Decision Made</h5>
+                            <p class="text-sm text-gray-600">Awaiting final decision on your application</p>
+                        </div>
+                        <div class="timeline-item">
+                            <h5 class="font-medium text-gray-800">Completed</h5>
+                            <p class="text-sm text-gray-600">Your visa will be issued or results communicated</p>
+                        </div>
+                    </div>
+
+                    <div class="mt-8 border-t pt-6">
+                        <h4 class="text-lg font-medium text-gray-800 mb-4">Next Steps</h4>
+                        <div id="next-steps" class="prose prose-sm max-w-none">
+                            <p>Your application is currently being reviewed by our immigration officers. No further action is required from you at this time.</p>
+                            <p class="mt-2">If we need any additional information, we will contact you via email or phone using the details provided in your application.</p>
+                        </div>
+                    </div>
+
+                    <div class="mt-8 bg-blue-50 p-4 rounded-lg">
+                        <div class="flex items-start">
+                            <div class="flex-shrink-0 pt-1">
+                                <i class="fas fa-info-circle text-blue-800 text-xl"></i>
+                            </div>
+                            <div class="ml-3">
+                                <h4 class="text-sm font-medium text-blue-800">Need Help?</h4>
+                                <div class="mt-1 text-sm text-blue-700">
+                                    <p>If you have any questions about your application status, please contact our support team.</p>
+                                    <p class="mt-2"><i class="fas fa-phone-alt mr-2"></i> +1 (555) 123-4567</p>
+                                    <p><i class="fas fa-envelope mr-2"></i> support@globalimmigration.com</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white pt-12 pb-6">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Global Immigration</h3>
+                    <p class="text-gray-400">Providing professional visa and immigration services since 2005.</p>
+                    <div class="flex space-x-4 mt-4">
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white">Home</a></li>
+                        <li><a href="visa-types.html" class="text-gray-400 hover:text-white">Visa Types</a></li>
+                        <li><a href="apply.html" class="text-gray-400 hover:text-white">Apply Online</a></li>
+                        <li><a href="tracking.html" class="text-gray-400 hover:text-white">Track Application</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Contact Us</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-center text-gray-400"><i class="fas fa-map-marker-alt mr-2"></i> 123 Immigration St, Capital City</li>
+                        <li class="flex items-center text-gray-400"><i class="fas fa-phone-alt mr-2"></i> +1 (555) 123-4567</li>
+                        <li class="flex items-center text-gray-400"><i class="fas fa-envelope mr-2"></i> info@globalimmigration.com</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Newsletter</h3>
+                    <p class="text-gray-400 mb-2">Subscribe for updates and visa news</p>
+                    <form class="flex">
+                        <input type="email" placeholder="Your email" class="px-4 py-2 w-full rounded-l focus:outline-none text-gray-900">
+                        <button type="submit" class="bg-blue-800 hover:bg-blue-900 px-4 rounded-r"><i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-6 text-center text-gray-400">
+                <p>&copy; 2023 Global Immigration Services. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // Tracking functionality
+        document.getElementById('track-button').addEventListener('click', function() {
+            const trackingNumber = document.getElementById('tracking-number').value.trim();
+            
+            if (!trackingNumber) {
+                alert('Please enter your application reference number');
+                return;
+            }
+
+            if (trackingNumber.length !== 12) {
+                alert('Reference number must be 12 characters long');
+                return;
+            }
+
+            // In a real application, this would fetch data from a server
+            // For demo purposes, we'll use mock data
+            const mockData = {
+                refNumber: 'GS-' + trackingNumber,
+                applicantName: 'John Smith',
+                visaType: 'Tourist Visa',
+                submittedDate: 'June 15, 2023',
+                currentStage: 'Under Review',
+                estimatedDate: 'June 26, 2023',
+                caseOfficer: 'Officer Davis',
+                lastUpdated: 'June 19, 2023 - 9:00 AM',
+                status: 'In Progress',
+                statusClass: 'bg-blue-100 text-blue-800'
+            };
+
+            // Update the UI with the mock data
+            document.getElementById('ref-number').textContent = mockData.refNumber;
+            document.getElementById('applicant-name').textContent = mockData.applicantName;
+            document.getElementById('visa-type').textContent = mockData.visaType;
+            document.getElementById('submitted-date').textContent = mockData.submittedDate;
+            document.getElementById('current-stage').textContent = mockData.currentStage;
+            document.getElementById('estimated-date').textContent = mockData.estimatedDate;
+            document.getElementById('case-officer').textContent = mockData.caseOfficer;
+            document.getElementById('last-updated').textContent = mockData.lastUpdated;
+            
+            const statusBadge = document.getElementById('status-badge');
+            statusBadge.textContent = mockData.status;
+            statusBadge.className = `px-3 py-1 rounded-full text-sm font-medium ${mockData.statusClass}`;
+
+            // Show the results section
+            document.getElementById('results-section').classList.remove('hidden');
+        });
+
+        // Mobile menu toggle
+        const mobileMenuButton = document.querySelector('.mobile-menu-button');
+        const mobileMenu = document.querySelector('.mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>
