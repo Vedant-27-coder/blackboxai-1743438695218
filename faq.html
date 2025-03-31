@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FAQs - Global Immigration</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+        .faq-item {
+            border-bottom: 1px solid #e5e7eb;
+        }
+        .faq-question {
+            transition: all 0.3s ease;
+        }
+        .faq-question:hover {
+            color: #1e40af;
+        }
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+        }
+        .faq-item.active .faq-question i {
+            transform: rotate(180deg);
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-lg">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex justify-between">
+                <div class="flex space-x-7">
+                    <div>
+                        <a href="index.html" class="flex items-center py-4 px-2">
+                            <i class="fas fa-passport text-blue-800 text-2xl mr-2"></i>
+                            <span class="font-semibold text-gray-900 text-lg">Global Immigration</span>
+                        </a>
+                    </div>
+                </div>
+                <div class="hidden md:flex items-center space-x-1">
+                    <a href="index.html" class="py-4 px-2 text-gray-500 font-semibold hover:text-blue-800 transition duration-300">Home</a>
+                    <a href="visa-types.html" class="py-4 px-2 text-gray-500 font-semibold hover:text-blue-800 transition duration-300">Visa Types</a>
+                    <a href="apply.html" class="py-4 px-2 text-gray-500 font-semibold hover:text-blue-800 transition duration-300">Apply</a>
+                    <a href="tracking.html" class="py-4 px-2 text-gray-500 font-semibold hover:text-blue-800 transition duration-300">Track</a>
+                    <a href="faq.html" class="py-4 px-2 text-blue-800 border-b-4 border-blue-800 font-semibold">FAQ</a>
+                    <a href="contact.html" class="py-4 px-2 text-gray-500 font-semibold hover:text-blue-800 transition duration-300">Contact</a>
+                </div>
+                <div class="md:hidden flex items-center">
+                    <button class="outline-none mobile-menu-button">
+                        <i class="fas fa-bars text-gray-500 text-xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- FAQ Section -->
+    <div class="container mx-auto px-4 py-12">
+        <div class="max-w-4xl mx-auto">
+            <div class="text-center mb-12">
+                <h1 class="text-3xl md:text-4xl font-bold text-gray-800 mb-4">Frequently Asked Questions</h1>
+                <p class="text-gray-600 max-w-2xl mx-auto">Find answers to common questions about visa applications, requirements, and processing times.</p>
+            </div>
+
+            <!-- Search Bar -->
+            <div class="mb-8">
+                <div class="relative">
+                    <input type="text" id="faq-search" placeholder="Search FAQs..." 
+                        class="w-full px-4 py-3 border rounded-lg focus:ring-blue-800 focus:border-blue-800 pl-12">
+                    <div class="absolute left-3 top-3 text-gray-400">
+                        <i class="fas fa-search"></i>
+                    </div>
+                </div>
+            </div>
+
+            <!-- FAQ Categories -->
+            <div class="flex flex-wrap gap-2 mb-8">
+                <button class="faq-category px-4 py-2 bg-blue-800 text-white rounded-full text-sm font-medium">All</button>
+                <button class="faq-category px-4 py-2 bg-gray-200 hover:bg-gray-300 text-gray-800 rounded-full text-sm font-medium transition duration-300" data-category="application">Application Process</button>
+                <button class="faq-category px-4 py-2 bg-gray-200 hover:bg-gray-300 text-gray-800 rounded-full text-sm font-medium transition duration-300" data-category="documents">Required Documents</button>
+                <button class="faq-category px-4 py-2 bg-gray-200 hover:bg-gray-300 text-gray-800 rounded-full text-sm font-medium transition duration-300" data-category="processing">Processing Times</button>
+                <button class="faq-category px-4 py-2 bg-gray-200 hover:bg-gray-300 text-gray-800 rounded-full text-sm font-medium transition duration-300" data-category="fees">Fees & Payments</button>
+            </div>
+
+            <!-- FAQ Items -->
+            <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                <!-- Application Process FAQs -->
+                <div class="faq-item" data-category="application">
+                    <div class="faq-question p-6 cursor-pointer flex justify-between items-center">
+                        <h3 class="text-lg font-medium">How do I apply for a visa?</h3>
+                        <i class="fas fa-chevron-down text-blue-800 transition-transform duration-300"></i>
+                    </div>
+                    <div class="faq-answer px-6 pb-6">
+                        <p class="text-gray-600">You can apply for a visa through our online application system. Simply visit the <a href="apply.html" class="text-blue-800 hover:underline">Apply page</a>, select the type of visa you need, fill out the application form, upload the required documents, and pay the application fee. You'll receive a confirmation email with your application reference number.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item" data-category="application">
+                    <div class="faq-question p-6 cursor-pointer flex justify-between items-center">
+                        <h3 class="text-lg font-medium">Can I edit my application after submission?</h3>
+                        <i class="fas fa-chevron-down text-blue-800 transition-transform duration-300"></i>
+                    </div>
+                    <div class="faq-answer px-6 pb-6">
+                        <p class="text-gray-600">Once submitted, you cannot directly edit your application. If you need to make changes, please contact our support team immediately with your application reference number and details of the changes required. We'll guide you through the process of updating your application.</p>
+                    </div>
+                </div>
+
+                <!-- Required Documents FAQs -->
+                <div class="faq-item" data-category="documents">
+                    <div class="faq-question p-6 cursor-pointer flex justify-between items-center">
+                        <h3 class="text-lg font-medium">What documents do I need for a tourist visa?</h3>
+                        <i class="fas fa-chevron-down text-blue-800 transition-transform duration-300"></i>
+                    </div>
+                    <div class="faq-answer px-6 pb-6">
+                        <p class="text-gray-600">For a tourist visa, you typically need:</p>
+                        <ul class="list-disc pl-5 mt-2 space-y-1 text-gray-600">
+                            <li>Valid passport (with at least 6 months validity)</li>
+                            <li>Passport-sized photograph</li>
+                            <li>Proof of accommodation (hotel bookings or invitation letter)</li>
+                            <li>Travel itinerary or return flight tickets</li>
+                            <li>Proof of sufficient funds (bank statements)</li>
+                            <li>Travel insurance (for some countries)</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="faq-item" data-category="documents">
+                    <div class="faq-question p-6 cursor-pointer flex justify-between items-center">
+                        <h3 class="text-lg font-medium">Do my documents need to be translated?</h3>
+                        <i class="fas fa-chevron-down text-blue-800 transition-transform duration-300"></i>
+                    </div>
+                    <div class="faq-answer px-6 pb-6">
+                        <p class="text-gray-600">Yes, any documents not in English must be accompanied by certified translations. The translation should include a statement from the translator confirming the translation is accurate, the date of translation, the translator's full name and signature, and contact details.</p>
+                    </div>
+                </div>
+
+                <!-- Processing Times FAQs -->
+                <div class="faq-item" data-category="processing">
+                    <div class="faq-question p-6 cursor-pointer flex justify-between items-center">
+                        <h3 class="text-lg font-medium">How long does visa processing take?</h3>
+                        <i class="fas fa-chevron-down text-blue-800 transition-transform duration-300"></i>
+                    </div>
+                    <div class="faq-answer px-6 pb-6">
+                        <p class="text-gray-600">Processing times vary depending on the visa type and current workload:</p>
+                        <ul class="list-disc pl-5 mt-2 space-y-1 text-gray-600">
+                            <li>Tourist Visa: 5-10 business days</li>
+                            <li>Business Visa: 7-14 business days</li>
+                            <li>Student Visa: 4-6 weeks</li>
+                            <li>Work Visa: 6-8 weeks</li>
+                        </ul>
+                        <p class="mt-2 text-gray-600">These are estimated times and may vary. You can check your application status anytime on our <a href="tracking.html" class="text-blue-800 hover:underline">Track Application</a> page.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item" data-category="processing">
+                    <div class="faq-question p-6 cursor-pointer flex justify-between items-center">
+                        <h3 class="text-lg font-medium">Can I expedite my visa application?</h3>
+                        <i class="fas fa-chevron-down text-blue-800 transition-transform duration-300"></i>
+                    </div>
+                    <div class="faq-answer px-6 pb-6">
+                        <p class="text-gray-600">Expedited processing may be available for certain visa types in emergency situations (medical emergencies, family crises, or urgent business needs). Additional fees apply for expedited service. To request expedited processing, please contact our support team with your application reference number and documentation supporting your request.</p>
+                    </div>
+                </div>
+
+                <!-- Fees & Payments FAQs -->
+                <div class="faq-item" data-category="fees">
+                    <div class="faq-question p-6 cursor-pointer flex justify-between items-center">
+                        <h3 class="text-lg font-medium">What are the visa application fees?</h3>
+                        <i class="fas fa-chevron-down text-blue-800 transition-transform duration-300"></i>
+                    </div>
+                    <div class="faq-answer px-6 pb-6">
+                        <p class="text-gray-600">Our current visa application fees are:</p>
+                        <ul class="list-disc pl-5 mt-2 space-y-1 text-gray-600">
+                            <li>Tourist Visa: $120</li>
+                            <li>Business Visa: $150</li>
+                            <li>Student Visa: $200</li>
+                            <li>Work Visa: $250</li>
+                            <li>Transit Visa: $60</li>
+                        </ul>
+                        <p class="mt-2 text-gray-600">Fees are non-refundable, even if the application is refused. Payment methods include credit/debit cards and bank transfers.</p>
+                    </div>
+                </div>
+
+                <div class="faq-item" data-category="fees">
+                    <div class="faq-question p-6 cursor-pointer flex justify-between items-center">
+                        <h3 class="text-lg font-medium">Is the visa fee refundable if my application is denied?</h3>
+                        <i class="fas fa-chevron-down text-blue-800 transition-transform duration-300"></i>
+                    </div>
+                    <div class="faq-answer px-6 pb-6">
+                        <p class="text-gray-600">No, the visa application fee is non-refundable regardless of the outcome of your application. This fee covers the administrative costs of processing your application, which are incurred whether the visa is granted or not.</p>
+                    </div>
+                </div>
+
+                <!-- Additional Support -->
+                <div class="p-6 bg-blue-50">
+                    <div class="flex items-start">
+                        <div class="flex-shrink-0 pt-1">
+                            <i class="fas fa-question-circle text-blue-800 text-xl"></i>
+                        </div>
+                        <div class="ml-3">
+                            <h4 class="text-lg font-medium text-blue-800">Still have questions?</h4>
+                            <div class="mt-2 text-blue-700">
+                                <p>If you can't find the answer to your question here, our support team is ready to help.</p>
+                                <div class="mt-4 flex flex-col sm:flex-row gap-4">
+                                    <a href="contact.html" class="bg-blue-800 hover:bg-blue-900 text-white font-medium py-2 px-4 rounded transition duration-300 text-center">
+                                        Contact Us
+                                    </a>
+                                    <a href="tel:+15551234567" class="border border-blue-800 text-blue-800 hover:bg-blue-50 font-medium py-2 px-4 rounded transition duration-300 text-center">
+                                        <i class="fas fa-phone-alt mr-2"></i> Call Support
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-white pt-12 pb-6">
+        <div class="container mx-auto px-4">
+            <div class="grid md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Global Immigration</h3>
+                    <p class="text-gray-400">Providing professional visa and immigration services since 2005.</p>
+                    <div class="flex space-x-4 mt-4">
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-twitter"></i></a>
+                        <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Quick Links</h3>
+                    <ul class="space-y-2">
+                        <li><a href="index.html" class="text-gray-400 hover:text-white">Home</a></li>
+                        <li><a href="visa-types.html" class="text-gray-400 hover:text-white">Visa Types</a></li>
+                        <li><a href="apply.html" class="text-gray-400 hover:text-white">Apply Online</a></li>
+                        <li><a href="tracking.html" class="text-gray-400 hover:text-white">Track Application</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Contact Us</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-center text-gray-400"><i class="fas fa-map-marker-alt mr-2"></i> 123 Immigration St, Capital City</li>
+                        <li class="flex items-center text-gray-400"><i class="fas fa-phone-alt mr-2"></i> +1 (555) 123-4567</li>
+                        <li class="flex items-center text-gray-400"><i class="fas fa-envelope mr-2"></i> info@globalimmigration.com</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-4">Newsletter</h3>
+                    <p class="text-gray-400 mb-2">Subscribe for updates and visa news</p>
+                    <form class="flex">
+                        <input type="email" placeholder="Your email" class="px-4 py-2 w-full rounded-l focus:outline-none text-gray-900">
+                        <button type="submit" class="bg-blue-800 hover:bg-blue-900 px-4 rounded-r"><i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-6 text-center text-gray-400">
+                <p>&copy; 2023 Global Immigration Services. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // FAQ accordion functionality
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const faqItem = question.parentElement;
+                faqItem.classList.toggle('active');
+            });
+        });
+
+        // FAQ search functionality
+        document.getElementById('faq-search').addEventListener('input', function(e) {
+            const searchTerm = e.target.value.toLowerCase();
+            document.querySelectorAll('.faq-item').forEach(item => {
+                const question = item.querySelector('.faq-question h3').textContent.toLowerCase();
+                const answer = item.querySelector('.faq-answer').textContent.toLowerCase();
+                if (question.includes(searchTerm) || answer.includes(searchTerm)) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        });
+
+        // FAQ category filtering
+        document.querySelectorAll('.faq-category').forEach(button => {
+            button.addEventListener('click', function() {
+                const category = this.dataset.category;
+                
+                // Update active category button
+                document.querySelectorAll('.faq-category').forEach(btn => {
+                    btn.classList.remove('bg-blue-800', 'text-white');
+                    btn.classList.add('bg-gray-200', 'text-gray-800', 'hover:bg-gray-300');
+                });
+                
+                if (!category) {
+                    // Show all FAQs
+                    document.querySelectorAll('.faq-item').forEach(item => {
+                        item.style.display = 'block';
+                    });
+                } else {
+                    // Filter by category
+                    document.querySelectorAll('.faq-item').forEach(item => {
+                        if (item.dataset.category === category) {
+                            item.style.display = 'block';
+                        } else {
+                            item.style.display = 'none';
+                        }
+                    });
+                }
+                
+                this.classList.remove('bg-gray-200', 'text-gray-800', 'hover:bg-gray-300');
+                this.classList.add('bg-blue-800', 'text-white');
+            });
+        });
+
+        // Mobile menu toggle
+        const mobileMenuButton = document.querySelector('.mobile-menu-button');
+        const mobileMenu = document.querySelector('.mobile-menu');
+        
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+    </script>
+</body>
+</html>
